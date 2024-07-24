@@ -46,38 +46,36 @@ pipeline {
         //     sh 'npm run unit'
         //   }
         // }
-        stage('Build') {
+        stage('dev') {
           steps {
-            echo 'next building the application...  now....'
-            sh 'npm run build'
+            echo 'next dev the application...  now....'
+            echo 'next build 시 에러나서 임시로 개발로 배포  now....'
+            sh 'npm run dev'
           }
         }
-        stage('run') {
-          steps {
-            echo 'next building the application...  now....'
-            // sh 'npm run dev'
-            sh 'pm2 restart "next" || pm2 start "npm run start" --name next'
-          }
-        }
-        // stage('build') {
+        // stage('Build') {
+        //   steps {
+        //     echo 'next building the application...  now....'
+        //     sh 'npm run build'
+        //   }
+        // }
+        // stage('run') {
+        //   steps {
+        //     echo 'next building the application...  now....'
+        //     // sh 'npm run dev'
+        //     sh 'pm2 restart "next" || pm2 start "npm run start" --name next'
+        //   }
+        // } 
+        // stage('test') {
         //     steps {
-        //         echo 'building the application...'
-        //         cd "/var/jenkins_home/workspace/Book Management App/src/frontend"
-        //         yarn install
-        //         yarn clean
-        //         yarn build
+        //         echo 'next testing the application...'
         //     }
         // }
-        stage('test') {
-            steps {
-                echo 'next testing the application...'
-            }
-        }
-        stage('deploy') {
-            steps {
-                echo 'next deploying the application...'
-            }
-        }
+        // stage('deploy') {
+        //     steps {
+        //         echo 'next deploying the application...'
+        //     }
+        // }
         // stage('run') {
         //     steps {
         //         echo 'next run the application... by node 명령  important https://jenkins.sodi9.store/github-webhook/'
