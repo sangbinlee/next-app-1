@@ -56,7 +56,7 @@ pipeline {
           steps {
             echo 'next building the application...  now....'
             // sh 'npm run dev'
-            sh 'pm2 restart "nuxt-app-3" || pm2 start "npm run start" --name next'
+            sh 'pm2 restart "next" || pm2 start "npm run start" --name next'
           }
         }
         // stage('build') {
