@@ -46,30 +46,14 @@ pipeline {
         //     sh 'npm run unit'
         //   }
         // }
-
-
         stage('dev') {
           steps {
             echo 'next dev the application...  now....'
             echo 'next build 시 에러나서 임시로 개발로 배포  now....'
-            sh 'npm run dev'
+            // sh 'npm run dev'
+            sh 'pm2 restart "next" || pm2 start "npm run dev" --name next'
           }
         }
-
-
-
-
-
-        // "scripts": {
-        //   "dev": "next dev",
-        //   "build": "set NODE_ENV=production && next build",
-        //   "start": "next start -p 3003", 
-        //   "lint": "next lint"
-        // },
-
-
-
-
         // stage('Build') {
         //   steps {
         //     echo 'next building the application...  now....'
@@ -83,14 +67,6 @@ pipeline {
         //     sh 'pm2 restart "next" || pm2 start "npm run start" --name next'
         //   }
         // } 
-
-
-
-
-
-
-
-
         // stage('test') {
         //     steps {
         //         echo 'next testing the application...'
