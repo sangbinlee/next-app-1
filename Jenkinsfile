@@ -48,13 +48,13 @@ pipeline {
         // }
 
 
-        // stage('dev') {
-        //   steps {
-        //     echo 'next dev the application...  now....'
-        //     echo 'next build 시 에러나서 임시로 개발로 배포  now....'
-        //     sh 'npm run dev'
-        //   }
-        // }
+        stage('dev') {
+          steps {
+            echo 'next dev the application...  now....'
+            echo 'next build 시 에러나서 임시로 개발로 배포  now....'
+            sh 'npm run dev'
+          }
+        }
 
 
 
@@ -70,19 +70,27 @@ pipeline {
 
 
 
-        stage('Build') {
-          steps {
-            echo 'next building the application...  now....'
-            sh 'npm run build'
-          }
-        }
-        stage('run') {
-          steps {
-            echo 'next building the application...  now....'
-            // sh 'npm run dev'
-            sh 'pm2 restart "next" || pm2 start "npm run start" --name next'
-          }
-        } 
+        // stage('Build') {
+        //   steps {
+        //     echo 'next building the application...  now....'
+        //     sh 'npm run build'
+        //   }
+        // }
+        // stage('run') {
+        //   steps {
+        //     echo 'next building the application...  now....'
+        //     // sh 'npm run dev'
+        //     sh 'pm2 restart "next" || pm2 start "npm run start" --name next'
+        //   }
+        // } 
+
+
+
+
+
+
+
+
         // stage('test') {
         //     steps {
         //         echo 'next testing the application...'
