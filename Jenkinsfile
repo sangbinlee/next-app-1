@@ -46,19 +46,19 @@ pipeline {
         //     sh 'npm run unit'
         //   }
         // }
+        stage('Build') {
+          steps {
+            echo 'next building the application...  now....'
+            sh 'npm run build'
+          }
+        }
         stage('dev') {
           steps {
             echo 'next building the application...  now....'
             // sh 'npm run dev'
-            sh 'pm2 start "npm run start" --name next'
+            sh 'pm2 restart "nuxt-app-3" || pm2 start "npm run start" --name next'
           }
         }
-        // stage('Build') {
-        //   steps {
-        //     echo 'next building the application...  now....'
-        //     sh 'npm run build'
-        //   }
-        // }
         // stage('build') {
         //     steps {
         //         echo 'building the application...'
