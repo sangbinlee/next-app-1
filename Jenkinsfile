@@ -50,7 +50,8 @@ pipeline {
           steps {
             echo 'next dev the application...  now....'
             echo 'next build 시 에러나서 임시로 개발로 배포  now....'
-            sh 'npm run dev'
+            // sh 'npm run dev'
+            sh 'pm2 restart "next" || pm2 start "npm run dev" --name next'
           }
         }
         // stage('Build') {
