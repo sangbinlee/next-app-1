@@ -52,7 +52,7 @@ pipeline {
             sh 'npm run build'
           }
         }
-        stage('dev') {
+        stage('run') {
           steps {
             echo 'next building the application...  now....'
             // sh 'npm run dev'
