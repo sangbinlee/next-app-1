@@ -50,7 +50,7 @@ pipeline {
           steps {
             echo 'next building the application...  now....'
             // sh 'npm run dev'
-            sh 'pm2 start "npm run start" --name next'
+            sh 'pm2 start "npm run start -p 3003" --name next'
           }
         }
         // stage('Build') {
